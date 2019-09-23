@@ -2,8 +2,11 @@ Below are the short descriptions of the basic nodejs applications contained in t
 
 # nodes-app
 this is a simple app that allows users to add,remove, search or list their notes, which is stored in the Json file.
-instruction
+
+below are instructions to test the application.
+
 ```bash
+cd notes-app
 node app.js add --title title_0 --body body_0 #add a new title with body to the database
 node app.js list #list all the titles
 node app.js read --title title_0 #read body of a title
