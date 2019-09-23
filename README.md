@@ -1,7 +1,7 @@
-This repository holds the nodejs learning code through the nodejs class "Complete NodeJS developer"
+Below are the short descriptions of the basic nodejs applications contained in this repository.
 
 # nodes-app
-A simple app that allows users to add,remove, search or list their notes, which is stored in the Json file.
+this is a simple app that allows users to add,remove, search or list their notes, which is stored in the Json file.
 instruction
 ```bash
 node app.js add --title title_0 --body body_0 #add a new title with body to the database
