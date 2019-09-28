@@ -20,3 +20,12 @@ longtitude and latitude. This location information will serves as inputs to anot
 cd weather-app
 node app.js hanoi
 ```
+
+# simple web-server
+This experiment shows the structure of a simple website that serves both dynamic and static contents. The dynamic content is served through the combination of Express and the template library __hbs__. HBS templates define the static structure of the response and the placement for dynamic content. In the real time, the server will fill in these varibles depending on requirement from browers. To help reuse the HBS templates, we also 
+use HBS partials for header and footer so that we dont have to rewrite them for every subpages.
+```bash
+cd web-server
+node app.js
+start the brower and go to page: 127.0.0.0:3000
+```  
