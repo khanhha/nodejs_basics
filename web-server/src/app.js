@@ -1,6 +1,8 @@
 const express = require('express')
 const path = require('path')
 const hbs = require('hbs')
+const geocode = require('./utils/geocode')
+const forecast   = require('./utils/forecast')
 
 const app = express()
 const publicdir = path.join(__dirname, '../public')
@@ -35,7 +37,37 @@ app.get('/help', (req, res) => {
 })
 
 app.get('/weather', (req, res) => {
-    res.send('oh my god. Today is so hot. I guess its the hottest day this summer')
+    if (!req.query.search){
+        return res.send({
+            error: 'no search query is provided. check your URL request' 
+        })
+    }else{
+        geocode(req.query.search, (error, {longtitude, latitude, location} = {}) => {
+            if (error){
+                return res.send({error})
+            }
+            forecast(longtitude, latitude, (error, summary) => {
+                if (error){
+                    return res.send({error})
+                }
+                return res.send({
+                    adress : req.query.search,
+                    longtitude,
+                    latitude,
+                    location,
+                    forecast: summary                 
+                })
+            })
+        })
+    }
+})
+
+app.get('/*', (req, res) => {
+    res.render('404', {
+        title: '404',
+        name : 'khanh ha',
+        errorMessage : "page is not supported"
+    })
 })
 
 app.listen(3000, () => {
