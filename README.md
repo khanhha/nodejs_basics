@@ -34,4 +34,8 @@ node app.js
 start the brower and go to page: 127.0.0.0:3000
 ```  
 
-# task manager app
+# project manager app
+- Mongoose:
+  - Mongoose Schema is used define models for Project and User. A project is owned by an user and a user can manage projects. 
+  - The "virtual" property in Mongoose is utilized to model the referecen between "Project" and "User", so it will be much easier to query for their relationships. 
+  - Before an user is removed, "pre" method of "remove" is called to remove all projects that depend on that user.
